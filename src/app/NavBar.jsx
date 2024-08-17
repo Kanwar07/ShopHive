@@ -10,9 +10,9 @@ function NavBar() {
   const { cartquantity } = useContext(ContextData);
 
   return (
-    <nav className="fixed top-0 w-screen flex flex-row py-8 justify-around items-center rounded-b-lg backdrop-blur-md shadow-custom-lg">
+    <nav className="w-screen flex flex-row py-8 justify-around items-center rounded-b-lg shadow-custom-lg max-sm:flex-col">
       <Link href="/">
-        <div className="flex flex-row items-end">
+        <div className="flex flex-row items-end max-sm:mb-4">
           <Image
             src={shoppinglogo}
             alt="shoppinglogo"
@@ -23,7 +23,7 @@ function NavBar() {
           <button>ShopHive</button>
         </div>
       </Link>
-      <div className="flex flex-row justify-between gap-2">
+      <div className="flex flex-row justify-between gap-2 max-sm:gap-8">
         <Link href="/products">
           <div className="rounded-xl p-2 shadow-none transition ease-in-out duration-500 hover:shadow-2xl hover:bg-[#a78770]">
             Products
@@ -38,7 +38,7 @@ function NavBar() {
           </div>
         </Link>
       </div>
-      <div className="flex flex-row justify-between gap-2">
+      <div className="flex flex-row justify-between gap-2 max-sm:gap-8">
         <Link href="/register">
           <div className="rounded-xl p-2 shadow-none transition ease-in-out duration-500 hover:shadow-2xl hover:bg-[#a78770]">
             Register

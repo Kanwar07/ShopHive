@@ -3,6 +3,7 @@
 import React, { useContext } from "react";
 import { ContextData } from "@/Context/Context";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 function CartTotal() {
   const {
@@ -18,7 +19,15 @@ function CartTotal() {
   } = useContext(ContextData);
 
   return (
-    <div className="flex flex-col justify-center items-center gap-8 bg-[#ffffff] bg-opacity-60 text-[#00000] h-min pt-4 pb-4 pl-8 pr-8 rounded-2xl">
+    <motion.div
+      initial={{ x: 100, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{ duration: 2, ease: "easeInOut" }}
+      viewport={{
+        once: true,
+      }}
+      className="flex flex-col justify-center items-center gap-8 bg-[#ffffff] bg-opacity-60 text-[#00000] h-min pt-4 pb-4 pl-8 pr-8 rounded-2xl"
+    >
       <div className="text-[#000000] text-[20px] font-bold">
         Cart Total: ${total}
       </div>
@@ -89,7 +98,7 @@ function CartTotal() {
           ) : null}
         </div>
       </Link>
-    </div>
+    </motion.div>
   );
 }
 

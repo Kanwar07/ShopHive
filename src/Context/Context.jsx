@@ -17,6 +17,7 @@ function Context({ children }) {
   const [username, setusername] = useState("");
   const [password, setpassword] = useState("");
   const [confirmpassword, setconfirmpassword] = useState("");
+  const [productdetail, setproductdetail] = useState({});
 
   useEffect(() => {
     const fetchdata = async () => {
@@ -59,7 +60,7 @@ function Context({ children }) {
       setcartdata(updatedCartData);
       localStorage.setItem("cart", JSON.stringify(updatedCartData));
       settotal(newTotal.toFixed(2));
-      setoldtotal(total + price);
+      setoldtotal(newTotal.toFixed(2));
       localStorage.setItem("total", newTotal.toFixed(2));
       toast("Item added to cart, Kindly increase the quantity in Cart", {
         icon: "👏",
@@ -223,6 +224,8 @@ function Context({ children }) {
         setpassword,
         confirmpassword,
         setconfirmpassword,
+        productdetail,
+        setproductdetail,
       }}
     >
       {children}

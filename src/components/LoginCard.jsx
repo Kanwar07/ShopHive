@@ -4,6 +4,7 @@ import { ContextData } from "@/Context/Context";
 import Link from "next/link";
 import React, { useContext } from "react";
 import toast from "react-hot-toast";
+import { motion } from "framer-motion";
 
 function LoginCard() {
   const { username, setusername, password, setpassword } =
@@ -38,7 +39,16 @@ function LoginCard() {
   };
 
   return (
-    <div className="bg-[#d3d3d3] bg-opacity-60 text-[#00000] flex flex-col py-8 px-[10%] w-min rounded-3xl -mt-32 -mb-14">
+    <motion.div
+      initial={{ x: -100, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{ duration: 2, ease: "easeInOut" }}
+      viewport={{
+        once: true,
+      }}
+      className="bg-[#d3d3d3] bg-opacity-60 text-[#00000] flex flex-col py-6
+      px-[10%] w-min rounded-3xl"
+    >
       <div className="pb-6 text-[30px]">Log In</div>
       <div className="pb-4">
         <input
@@ -73,7 +83,7 @@ function LoginCard() {
           <div className="text-[#5b5b5b]">Register</div>
         </Link>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

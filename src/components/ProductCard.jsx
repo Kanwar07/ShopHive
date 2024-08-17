@@ -4,9 +4,15 @@ import { ContextData } from "@/Context/Context";
 import Image from "next/image";
 import info from "@/assets/info.png";
 import Link from "next/link";
+import { Rating } from "@mui/material";
 
 function ProductCard({ product }) {
-  const { cartdata, removeCartItems, getcarddata } = useContext(ContextData);
+  const { cartdata, removeCartItems, getcarddata, setproductdetail } =
+    useContext(ContextData);
+
+  const senddata = () => {
+    setproductdetail(product);
+  };
 
   return (
     <div className="flex flex-col justify-between shadow-custom-lg bg-[#d3d3d3] rounded-2xl h-[400px]">
@@ -21,17 +27,26 @@ function ProductCard({ product }) {
       <CardHeader>
         <CardTitle className="text-[20px]">
           {product.title}
-          <Link href="/detail">
+          <Link href="/detail" onClick={senddata}>
             <Image src={info} alt="info" width={20} height={20} />
           </Link>
         </CardTitle>
       </CardHeader>
       <div className="flex flex-row justify-between">
         <CardContent>
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-start">
             <div className="text-[16px] pr-2">${product.price}</div>
             <div className="text-[#FF0000] text-[14px]">
               {product.discountPercentage}% off
+            </div>
+            <div>
+              <Rating
+                name="read-only"
+                value={product.rating}
+                precision={0.5}
+                size="small"
+                readOnly
+              />
             </div>
           </div>
         </CardContent>

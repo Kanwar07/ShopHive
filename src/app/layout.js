@@ -3,6 +3,7 @@ import "./globals.css";
 import NavBar from "@/app/NavBar";
 import Context from "@/Context/Context.jsx";
 import { Toaster } from "react-hot-toast";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
           <Toaster position="bottom-center" toastOptions={{ duration: 2000 }} />
           <NavBar />
           {children}
+          <Footer />
         </Context>
       </body>
     </html>
