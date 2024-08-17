@@ -6,7 +6,7 @@ import Link from "next/link";
 function HeroSection() {
   return (
     <div className="bg-custom-gradient w-screen h-full flex flex-row justify-around gap-8 items-center pt-44 px-[10%] max-lg:flex-col">
-      <div className="flex flex-col gap-8 items-start my-10">
+      <div className="flex flex-col -mt-20 gap-8 my-10 max-lg:-mt-10">
         <h1 className="text-[#000000] text-[46px]">Welcome to ShopHive</h1>
         <p>Your One-Stop Shop for Everything You Love. Explore Now!</p>
         <Link href="/products">

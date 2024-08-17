@@ -33,7 +33,7 @@ function CartTotal() {
           </button>
         </div>
       ) : (
-        <div className="flex flex-row justify-around gap-8">
+        <div className="flex flex-row justify-around gap-8 max-sm:flex-col">
           <div className="flex-1 flex flex-col items-center gap-4">
             <input
               type="number"

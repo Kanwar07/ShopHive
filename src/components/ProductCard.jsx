@@ -22,13 +22,7 @@ function ProductCard({ product }) {
         <CardTitle className="text-[20px]">
           {product.title}
           <Link href="/detail">
-            <Image
-              src={info}
-              alt="info"
-              width={20}
-              height={20}
-              product={product}
-            />
+            <Image src={info} alt="info" width={20} height={20} />
           </Link>
         </CardTitle>
       </CardHeader>

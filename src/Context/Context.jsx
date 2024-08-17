@@ -14,6 +14,9 @@ function Context({ children }) {
   const [discountType, setdiscountType] = useState("");
   const [discountValue, setdiscountValue] = useState(0);
   const [buttonDisabled, setbuttonDisabled] = useState(false);
+  const [username, setusername] = useState("");
+  const [password, setpassword] = useState("");
+  const [confirmpassword, setconfirmpassword] = useState("");
 
   useEffect(() => {
     const fetchdata = async () => {
@@ -101,11 +104,6 @@ function Context({ children }) {
       let updatedCart = cartdata.map((item) =>
         item.id === id ? { ...item, quantity: value } : item
       );
-      const totalQuantity = cartdata.reduce(
-        (sum, item) => sum + item.quantity,
-        0
-      );
-      setcartquantity(totalQuantity);
       let updatedTotal = updatedCart
         .map((item) => item.price * item.quantity)
         .reduce((total, n) => total + n)
@@ -130,7 +128,7 @@ function Context({ children }) {
           },
         });
       } else if (discountType === "number") {
-        settotal(total - discountValue);
+        settotal((total - discountValue).toFixed(2));
         toast("Discount Apllied!!!", {
           icon: "👏",
           style: {
@@ -141,7 +139,7 @@ function Context({ children }) {
         });
       } else {
         let discount = total * (discountValue / 200);
-        settotal(total - discount);
+        settotal((total - discount).toFixed(2));
         toast("Discount Apllied!!!", {
           icon: "👏",
           style: {
@@ -219,6 +217,12 @@ function Context({ children }) {
         setoldtotal,
         orderconfirm,
         getcarddata,
+        username,
+        setusername,
+        password,
+        setpassword,
+        confirmpassword,
+        setconfirmpassword,
       }}
     >
       {children}
